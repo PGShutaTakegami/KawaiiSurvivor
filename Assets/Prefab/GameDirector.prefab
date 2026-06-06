@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3677438283852108056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3626935525083039751}
+  - component: {fileID: 4591488185071525203}
+  - component: {fileID: 7813434274001619305}
+  - component: {fileID: 6308860442693280066}
+  - component: {fileID: 243767412240820719}
+  - component: {fileID: 468273042616467925}
+  m_Layer: 0
+  m_Name: GameDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3626935525083039751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677438283852108056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.04416, y: -2.08317, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4591488185071525203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677438283852108056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeeea0fce1ca13f499e846d22b1d83df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameController
+  enemies:
+  - name: RockSlime
+    enemyPrefab: {fileID: 4321436169376761416, guid: 5e1a50645eea9654c9d79909971f2805, type: 3}
+    spawnRate: 10
+    spawnPool: 200
+    maxSpawnPool: 300
+  spawnInterval: 1.5
+  maxSpawnRadius: 15
+  score: 0
+  coin: 0
+  coinText: {fileID: 0}
+  gameDuration: 300
+  gameTimer: 0
+  timerText: {fileID: 0}
+  gameCompleteUI: {fileID: 0}
+--- !u!114 &7813434274001619305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677438283852108056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed63b2a65def1c42832187ae15bdb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelController
+  playerController: {fileID: 4187429136342336704, guid: 0ae607efcd990c9499a7653b2abac68e, type: 3}
+  abilityManager: {fileID: 6308860442693280066}
+  levelFrame: {fileID: 6766027703550879982, guid: 56303e67867fcc34bb24c3b9146927ed, type: 3}
+  localOffset:
+  - {x: -300, y: 60, z: 0}
+  - {x: 0, y: 60, z: 0}
+  - {x: 300, y: 60, z: 0}
+  abilityButton:
+  - {fileID: 281693470147815824, guid: 2e0e2f819e895294f8fcd6adf5334d80, type: 3}
+  - {fileID: 281693470147815824, guid: ad9ada3b8de22a943a3fefe79e78b0e7, type: 3}
+  - {fileID: 281693470147815824, guid: 7f88fafd5f6c3664e8032f41a644255f, type: 3}
+--- !u!114 &6308860442693280066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677438283852108056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dab5eec258e7347a4afc69864773e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityManager
+  player: {fileID: 4187429136342336704, guid: 0ae607efcd990c9499a7653b2abac68e, type: 3}
+  abilities:
+  - name: IceBullet
+    abilityPrefab: {fileID: 70363751090799322, guid: 6c9c25dfe2822944bbc79dc4c6e83dc6, type: 3}
+    isUnlocked: 1
+    useLevel: 1
+    level: 1
+    useSpeed: 1
+    speed: 7
+    useLifeTime: 1
+    lifeTime: 2
+    useDamage: 1
+    damage: 100
+    usePenetration: 1
+    penetration: 0
+    useAttackSpeed: 1
+    attackSpeed: 1.2
+    useSpawnOffset: 0
+    spawnOffset: {x: 0, y: 0, z: 0}
+    parentToPlayer: 0
+    spawnPool: 3
+    maxSpawnPool: 30
+    timer: 0
+    activeObject: {fileID: 0}
+    appliedLevel: -1
+  - name: ItemArea
+    abilityPrefab: {fileID: 4387806061276057801, guid: c2f721407db0b614e9e1356f8fa3d0f4, type: 3}
+    isUnlocked: 1
+    useLevel: 1
+    level: 1
+    useSpeed: 0
+    speed: 0
+    useLifeTime: 0
+    lifeTime: 0
+    useDamage: 0
+    damage: 0
+    usePenetration: 0
+    penetration: 0
+    useAttackSpeed: 0
+    attackSpeed: 1.2
+    useSpawnOffset: 0
+    spawnOffset: {x: 0, y: 0, z: 0}
+    parentToPlayer: 1
+    spawnPool: 1
+    maxSpawnPool: 1
+    timer: 0
+    activeObject: {fileID: 0}
+    appliedLevel: -1
+  - name: Sword
+    abilityPrefab: {fileID: 1319702696325073158, guid: 7e1de5e88cd912949b6eafb47f7ba2cb, type: 3}
+    isUnlocked: 0
+    useLevel: 1
+    level: 1
+    useSpeed: 0
+    speed: 0
+    useLifeTime: 1
+    lifeTime: 0.9
+    useDamage: 1
+    damage: 300
+    usePenetration: 0
+    penetration: 0
+    useAttackSpeed: 1
+    attackSpeed: 3
+    useSpawnOffset: 1
+    spawnOffset: {x: 0, y: 3, z: 0}
+    parentToPlayer: 1
+    spawnPool: 1
+    maxSpawnPool: 1
+    timer: 0
+    activeObject: {fileID: 0}
+    appliedLevel: -1
+  - name: Ray
+    abilityPrefab: {fileID: 1335490617936391849, guid: 1c8ab6c7183648f40a715b3b842dee53, type: 3}
+    isUnlocked: 0
+    useLevel: 1
+    level: 1
+    useSpeed: 0
+    speed: 0
+    useLifeTime: 1
+    lifeTime: 2
+    useDamage: 1
+    damage: 500
+    usePenetration: 0
+    penetration: 0
+    useAttackSpeed: 1
+    attackSpeed: 10
+    useSpawnOffset: 0
+    spawnOffset: {x: 0, y: 0, z: 0}
+    parentToPlayer: 1
+    spawnPool: 1
+    maxSpawnPool: 3
+    timer: 0
+    activeObject: {fileID: 0}
+    appliedLevel: -1
+--- !u!114 &243767412240820719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677438283852108056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7f586bb9fda6b4ba5ce10dbd5ef74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageNumberManager
+  damageNumberPrefab: {fileID: 2021783754811535417, guid: b3bb38bbc0f4f3e48b9899ca5ced0965, type: 3}
+  damageNumberCanvas: {fileID: 0}
+  worldCamera: {fileID: 0}
+  spawnPool: 20
+  maxSpawnPool: 100
+--- !u!114 &468273042616467925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677438283852108056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf96fce7d3f40354b9019433d90585e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSwitch
+  gameComplete: {fileID: 0}
+  gameOver: {fileID: 0}
+  defaultBGM: {fileID: 8300000, guid: 4be88f4d61ea7f8438c060915cc81d80, type: 3}
+  gameCompleteBGM: {fileID: 8300000, guid: efdb87d67c2b9a1489c95bad7a051a68, type: 3}
+  gameOverBGM: {fileID: 8300000, guid: b41e46a12c0001e43b5ab466c0023d3c, type: 3}
+  volume: 0.6
